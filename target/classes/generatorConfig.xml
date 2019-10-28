@@ -20,8 +20,11 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
         <!--可以自定义生成model的代码注释,-->
-        <commentGenerator type="main.CommentGenerator">
+        <commentGenerator type="package main.CommentGenerator"> <!--type="main.CommentGenerator"-->
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
@@ -45,11 +48,11 @@
            <!-- <property name="trimStrings" value="true"/>-->
         </javaModelGenerator>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.zmm.milletucapi.dao" targetProject="${targetProject}">
+        <sqlMapGenerator targetPackage="${xml.targetPackage}" targetProject="${targetProject}">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="mapper" targetProject="${targetProject}">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.targetPackage}" targetProject="${targetProject}">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
