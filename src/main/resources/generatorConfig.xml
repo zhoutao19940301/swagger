@@ -6,7 +6,7 @@
     <!--数据库驱动-->
    <!-- <classPathEntry    location="C:\javadecompilation\mysql-connector-java-5.0.8-bin.jar"/>-->
     <properties resource="generator.properties"/> <!--添加配置数据源文件-->
-    <context id="DB2Tables"    targetRuntime="MyBatis3" defaultModelType="flat">
+    <context id="Mysql"    targetRuntime="MyBatis3" defaultModelType="flat">
         <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
@@ -16,12 +16,18 @@
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
         <!-- 格式化XML代码 -->
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <property name="useMapperCommentGenerator" value="false"/>
         <!-- 为模型生成序列化方法-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
-        <plugin type="${mapper.plugin}">
-            <property name="mappers" value="${mapper.Mapper}"/>
+        <!--使用通用Mapper插件-->
+        <plugin type="main.MyMapperPlugin">
+            <!-- 生成的Mapper都要继承的BaseMapper类 -->
+            <property name="mappers" value="mapper.MyMapper"/>
+            <!-- 设置自定义注释生成器，默认是 MapperCommentGenerator -->
+            <property name="commentGeneratorType" value="main.MyMapperCommentGenerator"/>
+            <property name="addRemarkComments" value="true"/>
         </plugin>
         <!--可以自定义生成model的代码注释,-->
         <commentGenerator type="package main.CommentGenerator"> <!--type="main.CommentGenerator"-->
