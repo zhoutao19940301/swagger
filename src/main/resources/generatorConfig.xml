@@ -64,11 +64,11 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="goods_type" domainObjectName="GoodsType"
+        <table tableName="sys_ad" domainObjectName="SysAd"
                enableCountByExample="false" enableUpdateByExample="false" 
                enableDeleteByExample="false" enableSelectByExample="false" 
                selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="code" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

@@ -6,6 +6,11 @@ import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.Properties;
 
+/**
+ * @Descriprion: 自定义generator代码生成器
+ * @Author: zhoutao
+ * @Date: 2019/10/29
+ **/
 public class MyMapperPlugin extends MapperPlugin {
 
     private CommentGeneratorConfiguration commentCfg;

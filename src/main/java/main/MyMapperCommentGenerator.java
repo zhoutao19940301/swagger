@@ -10,6 +10,11 @@ import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.Properties;
 
+/**
+ * @Descriprion: 自定义generator代码注释生成类
+ * @Author: zhoutao
+ * @Date: 2019/10/29
+ **/
 public class MyMapperCommentGenerator extends MapperCommentGenerator {
 
     private boolean addRemarkComments = false;
