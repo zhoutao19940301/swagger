@@ -16,9 +16,9 @@
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
         <!-- 格式化XML代码 -->
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
-        <property name="useMapperCommentGenerator" value="false"/>
+<!--        <property name="useMapperCommentGenerator" value="false"/>-->
         <!-- 为模型生成序列化方法-->
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+<!--        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         <!--使用通用Mapper插件-->
@@ -50,7 +50,9 @@
         </javaTypeResolver>
         <!--生成Model类存放位置-->
         <javaModelGenerator targetPackage="${entity.targetPackage}" targetProject="${targetProject}">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
+            <property name="rootClass" value="com.zmm.commonutils.baseclass.BaseEntity"/>
            <!-- <property name="trimStrings" value="true"/>-->
         </javaModelGenerator>
         <!--指定生成mapper.xml的路径-->
