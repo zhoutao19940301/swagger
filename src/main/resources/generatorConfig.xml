@@ -52,7 +52,7 @@
         <javaModelGenerator targetPackage="${entity.targetPackage}" targetProject="${targetProject}">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
-            <property name="rootClass" value="com.zmm.commonutils.baseclass.BaseEntity"/>
+<!--            <property name="rootClass" value="com.zmm.commonutils.baseclass.BaseEntity"/>-->
            <!-- <property name="trimStrings" value="true"/>-->
         </javaModelGenerator>
         <!--指定生成mapper.xml的路径-->
@@ -64,11 +64,11 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="sys_ad" domainObjectName="SysAd"
+        <table tableName="goods_type" domainObjectName="GoodsType"
                enableCountByExample="false" enableUpdateByExample="false" 
                enableDeleteByExample="false" enableSelectByExample="false" 
                selectByExampleQueryId="false">
-            <generatedKey column="code" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
