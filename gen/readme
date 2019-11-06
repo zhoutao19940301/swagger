@@ -1,0 +1,8 @@
+生成的文件在这个gen文件夹里
+
+使用步骤 :
+1.修改generator.properties中jdbc的信息，以及生成文件存放的包名。
+
+2.修改generatorConfig.xml，在文件末尾位置添加要自动生成的数据库表信息。
+
+3.启动main文件夹下的Generator类即可。
