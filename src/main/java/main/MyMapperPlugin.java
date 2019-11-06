@@ -1,5 +1,9 @@
 package main;
 
+import org.mybatis.generator.api.IntrospectedColumn;
+import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.dom.java.Method;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.config.CommentGeneratorConfiguration;
 import tk.mybatis.mapper.generator.MapperPlugin;
 import tk.mybatis.mapper.util.StringUtil;
@@ -30,4 +34,13 @@ public class MyMapperPlugin extends MapperPlugin {
         }
     }
 
+    @Override
+    public boolean modelSetterMethodGenerated(Method method, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+        return false;
+    }
+
+    @Override
+    public boolean modelGetterMethodGenerated(Method method, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+        return false;
+    }
 }

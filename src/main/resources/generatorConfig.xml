@@ -18,9 +18,9 @@
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 <!--        <property name="useMapperCommentGenerator" value="false"/>-->
         <!-- 为模型生成序列化方法-->
-<!--        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 为生成的Java模型创建一个toString方法 -->
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+<!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
         <!--使用通用Mapper插件-->
         <plugin type="main.MyMapperPlugin">
             <!-- 生成的Mapper都要继承的BaseMapper类 -->
@@ -64,11 +64,23 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="goods_type" domainObjectName="GoodsType"
+        <!--<table tableName="goods_type" domainObjectName="GoodsType"
                enableCountByExample="false" enableUpdateByExample="false" 
                enableDeleteByExample="false" enableSelectByExample="false" 
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+        <table tableName="sys_zdsj" domainObjectName="SysZdsj"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ZDSJ_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_zdlx" domainObjectName="SysZdlx"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ZDLX_ID" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

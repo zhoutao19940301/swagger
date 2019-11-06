@@ -91,6 +91,8 @@ public class MyMapperCommentGenerator extends MapperCommentGenerator {
     public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         String remarks=introspectedTable.getRemarks();
         topLevelClass.addJavaDocLine("@ApiModel( description = \"" + remarks + "\")");
+        topLevelClass.addJavaDocLine("@Data");
+        topLevelClass.addJavaDocLine("@ToString");
     }
 
     /**
