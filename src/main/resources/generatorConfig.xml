@@ -6,7 +6,7 @@
     <!--数据库驱动-->
    <!-- <classPathEntry    location="C:\javadecompilation\mysql-connector-java-5.0.8-bin.jar"/>-->
     <properties resource="generator.properties"/> <!--添加配置数据源文件-->
-    <context id="Mysql"    targetRuntime="MyBatis3" defaultModelType="flat">
+    <context id="Mysql"    targetRuntime="main.TkMyBatis3Impl" defaultModelType="flat">
         <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
@@ -64,23 +64,17 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <!--<table tableName="goods_type" domainObjectName="GoodsType"
-               enableCountByExample="false" enableUpdateByExample="false" 
-               enableDeleteByExample="false" enableSelectByExample="false" 
+        <!--<table tableName="index_quantitative_index" domainObjectName="QuantitativeIndex"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="quantitative_index_id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+        <table tableName="goods_type" domainObjectName="GoodsType"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>-->
-        <table tableName="sys_zdsj" domainObjectName="SysZdsj"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="ZDSJ_ID" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="sys_zdlx" domainObjectName="SysZdlx"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="ZDLX_ID" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
