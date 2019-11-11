@@ -64,17 +64,17 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <!--<table tableName="index_quantitative_index" domainObjectName="QuantitativeIndex"
+        <table tableName="index_quantitative_index" domainObjectName="QuantitativeIndex"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="quantitative_index_id" sqlStatement="MySql" identity="true"/>
-        </table>-->
-        <table tableName="goods_type" domainObjectName="GoodsType"
+        </table>
+        <!--<table tableName="goods_type" domainObjectName="GoodsType"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>
