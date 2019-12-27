@@ -24,10 +24,22 @@
         <!--使用通用Mapper插件-->
         <plugin type="main.MyMapperPlugin">
             <!-- 生成的Mapper都要继承的BaseMapper类 -->
-            <property name="mappers" value="mapper.MyMapper"/>
+            <property name="mappers" value="com.talkweb.edu.common.mapper.MyMapper"/>
             <!-- 设置自定义注释生成器，默认是 MapperCommentGenerator -->
             <property name="commentGeneratorType" value="main.MyMapperCommentGenerator"/>
             <property name="addRemarkComments" value="true"/>
+        </plugin>
+        <!--输出单个文件，每个表都会生成一个对应的文件 Service-->
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="${targetProject}"/>
+            <property name="targetPackage" value="com.talkweb.edu.index.service"/>
+            <property name="templatePath" value="file:src\main\resources\template\service.ftl"/>
+            <property name="mapperSuffix" value="Service"/>
+            <property name="fileName" value="${tableClass.shortClassName}${mapperSuffix}.java"/>
+            <!--默认值是下面这个，可以不配置-->
+            <property name="templateFormatter"
+                      value="tk.mybatis.mapper.generator.formatter.FreemarkerTemplateFormatter"/>
+            <property name="encoding" value="UTF-8"/>
         </plugin>
         <!--可以自定义生成model的代码注释,-->
         <commentGenerator type="package main.CommentGenerator"> <!--type="main.CommentGenerator"-->
@@ -63,6 +75,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.targetPackage}" targetProject="${targetProject}">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
+
         <!--生成对应表及类名-->
         <!--<table tableName="index_quantitative_index" domainObjectName="QuantitativeIndex"
                enableCountByExample="false" enableUpdateByExample="false"
@@ -75,13 +88,69 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>-->
+        </table>
         <table tableName="sys_calc" domainObjectName="SysCalc"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <generatedKey column="calc_id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table tableName="index_quantitative_index_val" domainObjectName="IndexQuantitativeIndexVal"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="quantitative_index_val_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="supervise_hierarchy_pa"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="pa_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="supervise_hierarchy_supervisors"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="supervisors_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_js"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="JS_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_yhjs"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="YH_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="supervise_task_school_index"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="task_school_index_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="supervise_hierarchy_school"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="school_org_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="supervise_hierarchy_rs"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="rs_id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+        <table tableName="index_update_task"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
 
     </context>
 </generatorConfiguration>
