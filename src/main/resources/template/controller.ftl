@@ -90,11 +90,11 @@ public class ${tableClass.shortClassName}Controller {
     @GetMapping("/selectById")
     @ApiOperation(value = "根据id查询", notes = "根据id查询")
     @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "int", paramType = "query")
-    public Response select${tableClass.shortClassName}(@NotNull(message = "id不能为空") @RequestParam Object id){
+    public Response<${tableClass.shortClassName}> select${tableClass.shortClassName}(@NotNull(message = "id不能为空") @RequestParam Object id){
         Response response = null;
         try {
-            ${tableClass.variableName}Service.selectById(id);
-            response = new Response();
+            ${tableClass.shortClassName} resp = ${tableClass.variableName}Service.selectById(id);
+            response = new Response(resp);
         } catch (ParamException e) {
             log.error(e.getMessage(),e);
             response = new Response(e.getCode(), e.getMessage());
