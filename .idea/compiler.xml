@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="talkedu-bigdata-generator" />
+        <module name="swagger" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="swagger" options="-parameters" />
       <module name="talkedu-bigdata-generator" options="-parameters" />
     </option>
   </component>

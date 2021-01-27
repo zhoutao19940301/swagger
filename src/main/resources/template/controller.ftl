@@ -22,7 +22,7 @@ import java.util.List;
 <#assign dateTime = .now>
 /**
 * @Descriprion ${tableClass.shortClassName}控制层
-* @Author  bigdata
+* @Author  zhoutao
 * @Date  ${dateTime?string["yyyy-MM-dd HH:mm:ss"]}
 */
 @Api(tags = "${tableClass.shortClassName}管理")

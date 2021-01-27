@@ -9,6 +9,7 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
 import org.mybatis.generator.internal.util.StringUtility;
 
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -48,14 +49,14 @@ public class CommentGenerator extends DefaultCommentGenerator {
             field.addJavaDocLine("@ApiModelProperty(value = \"" + remarks + "\" )");
         }
 
-//        List<IntrospectedColumn> primaryKeyColumns = introspectedTable.getPrimaryKeyColumns();
-//        for (IntrospectedColumn col : primaryKeyColumns) {
-//            if (col.getActualColumnName().equals(introspectedColumn.getActualColumnName())) {
-//                field.addAnnotation("@Id");
-//            }
-//        }
-//        field.addAnnotation("@Column(name = \"" + introspectedColumn.getActualColumnName() + "\")");
-//        super.addFieldComment(field, introspectedTable, introspectedColumn);
+        List<IntrospectedColumn> primaryKeyColumns = introspectedTable.getPrimaryKeyColumns();
+        for (IntrospectedColumn col : primaryKeyColumns) {
+            if (col.getActualColumnName().equals(introspectedColumn.getActualColumnName())) {
+                field.addAnnotation("@Id");
+            }
+        }
+        field.addAnnotation("@Column(name = \"" + introspectedColumn.getActualColumnName() + "\")");
+        super.addFieldComment(field, introspectedTable, introspectedColumn);
     }
 
     /**
@@ -74,10 +75,11 @@ public class CommentGenerator extends DefaultCommentGenerator {
     @Override
     public void addJavaFileComment(CompilationUnit compilationUnit) {
         super.addJavaFileComment(compilationUnit);
-        if(compilationUnit.isJavaInterface()&&compilationUnit.
-                getType().getFullyQualifiedName().contains(EXAMPLE_SUFFIX)){
-            compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
-        }
+//        if(compilationUnit.isJavaInterface()&&compilationUnit.
+//                getType().getFullyQualifiedName().contains(EXAMPLE_SUFFIX)){
+//            compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
+//        }
+        compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
     }
 
     @Override
@@ -95,7 +97,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
             //给类添加swagger注解
             topLevelClass.addJavaDocLine("@ApiModel( description = \"" + remarks + "\")");
         }
-//        topLevelClass.addAnnotation("@Table(name = \"" + introspectedTable.getFullyQualifiedTable() + "\")");
+        topLevelClass.addAnnotation("@Table(name = \"" + introspectedTable.getFullyQualifiedTable() + "\")");
     }
 
 }

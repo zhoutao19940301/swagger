@@ -9,12 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 <#assign dateTime = .now>
 /**
 * @description ${tableClass.shortClassName}业务层
-* @author  bigdata
+* @author  zhoutao
 * @since  ${dateTime?string["yyyy-MM-dd HH:mm:ss"]}
 */
 @Service
 @Slf4j
-public class ${tableClass.shortClassName}Service extends BaseService<${tableClass.shortClassName}> {
+public class ${tableClass.shortClassName}Service {
 
     @Resource
     private ${tableClass.shortClassName}Dao ${tableClass.variableName}Dao;
